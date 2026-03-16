@@ -1,20 +1,41 @@
 <header>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+<div class="top-bar">
+
+<div class="container d-flex justify-content-between">
+
+<a href="#">Beneficial Owner Information</a>
+
+<a href="#">Get FIRPTA Refund</a>
+
+</div>
+
+</div>
+
+
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm">
 
 <div class="container">
 
-<a class="navbar-brand" href="/">Company</a>
+<!-- LOGO -->
 
-<ul class="navbar-nav">
+<a class="navbar-brand" href="/">
+<img src="/images/logo.png" height="60">
+</a>
+
+<!-- MENU -->
+
+<ul class="navbar-nav ms-auto align-items-center">
 
 @foreach($menus as $menu)
 
-<li class="nav-item dropdown">
+<li class="nav-item {{ $menu->children->count() ? 'dropdown' : '' }}">
 
-<a class="nav-link dropdown-toggle"
+<a class="nav-link {{ $menu->children->count() ? 'dropdown-toggle' : '' }}"
    href="{{ url($menu->url) }}"
-   data-bs-toggle="dropdown">
+   {{ $menu->children->count() ? 'data-bs-toggle=dropdown' : '' }}>
 
 {{ $menu->title }}
 
@@ -41,6 +62,16 @@
 </li>
 
 @endforeach
+
+<!-- SEARCH ICON -->
+
+<li class="nav-item ms-3">
+
+<a href="#">
+<i class="bi bi-search"></i>
+</a>
+
+</li>
 
 </ul>
 
