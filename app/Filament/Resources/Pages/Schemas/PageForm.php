@@ -8,6 +8,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\MarkdownEditor;
+
+
 use Illuminate\Support\Str;
 
 class PageForm
@@ -40,7 +43,7 @@ class PageForm
                             ->default('default')
                             ->required(),
 
-                        RichEditor::make('content')
+                        MarkdownEditor::make('content')
                             ->columnSpanFull(),
 
                     ])

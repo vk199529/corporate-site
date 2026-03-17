@@ -2,6 +2,16 @@
 
 @section('content')
 
-<h1>Home Page</h1>
+<section class="container">
+
+<h1>{{ $page->title }}</h1>
+
+<div class="home-content">
+
+{!! $page->content !!}
+
+</div>
+
+</section>
 
 @endsection
