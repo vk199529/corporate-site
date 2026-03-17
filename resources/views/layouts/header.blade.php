@@ -34,8 +34,7 @@
 <li class="nav-item {{ $menu->children->count() ? 'dropdown' : '' }}">
 
 <a class="nav-link {{ $menu->children->count() ? 'dropdown-toggle' : '' }}"
-   href="{{ url($menu->url) }}"
-   {{ $menu->children->count() ? 'data-bs-toggle=dropdown' : '' }}>
+   href="{{ url($menu->url) }}">
 
 {{ $menu->title }}
 

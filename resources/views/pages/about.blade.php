@@ -10,6 +10,9 @@
 
 {!! $page->content !!}
 
+
+<p>This is about page</p>
+
 </div>
 
 </section>

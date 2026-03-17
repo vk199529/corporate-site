@@ -10,6 +10,9 @@ class Page extends Model
     'title',
     'slug',
     'content',
-    'template'
+    'template',
+
+    'meta_title',
+    'meta_description'
 ];
 }

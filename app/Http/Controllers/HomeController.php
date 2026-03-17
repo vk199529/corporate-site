@@ -9,8 +9,8 @@ use App\Models\Menu;
 
 class HomeController extends Controller
 {
-public function index()
-{
-    return view('pages.home');
-}
+// public function index()
+// {
+//     return view('pages.home');
+// }
 }
