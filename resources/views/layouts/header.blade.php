@@ -1,17 +1,18 @@
 <header>
 
 
+@if(request()->is('/'))
 <div class="top-bar">
 
-<div class="container d-flex justify-content-between">
+    <div class="container d-flex justify-content-between">
 
-<a href="#">Beneficial Owner Information</a>
+        <a href="#">Beneficial Owner Information</a>
+        <a href="#">Get FIRPTA Refund</a>
 
-<a href="#">Get FIRPTA Refund</a>
+    </div>
 
 </div>
-
-</div>
+@endif
 
 
 

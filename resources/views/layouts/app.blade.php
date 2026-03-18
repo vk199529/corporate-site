@@ -8,11 +8,13 @@
 <meta name="description"
       content="{{ $page->meta_description ?? '' }}">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <style>
 .top-bar{
 background:#f5f5f5;
@@ -42,7 +44,7 @@ margin-top:0;
 .footer-area{
 background:#1fa3d1;
 color:#fff;
-padding:60px 0;
+ padding:60px 0 0;
 }
 
 .footer-area h4{
@@ -72,6 +74,13 @@ border-radius:4px;
 background:#111;
 padding:20px 0;
 color:#fff;
+}
+
+footer.footer-area a {
+    color: white;
+}
+.container{
+      max-width:1270px;
 }
 </style>
 </head>

@@ -39,6 +39,11 @@ class PageForm
                                 'home'   => 'Home Page',
                                 'about' => 'About Page',
                                 'services' => 'Services Page',
+                                'make-a-payment' => 'Make A Payment Page',
+                                'careers' => 'Careers Page',
+                                'contact' => 'Contact Page',
+                                'service-detail' => 'Service Detail Page',
+                                'corporate-responsibility' => 'Corporate Responsibility Page',
                             ])
                             ->default('default')
                             ->required(),

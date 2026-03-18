@@ -6,16 +6,16 @@
 {{-- Column 1 Office Info --}}
 <div class="col-lg-3 col-md-6">
 
-<p><strong>Florida Office:</strong> (954) 862-2250</p>
-<p><strong>Jamaica Office:</strong> (876) 946-1274</p>
-<p><strong>Atlanta Office:</strong> (770) 320-7786</p>
+<p><strong>Florida Office:</strong> <a href="tel:19548622250"> (954) 862-2250</a></p>
+<p><strong>Jamaica Office:</strong> <a href="tel:18769461274"> (876) 946-1274</a></p>
+<p><strong>Atlanta Office:</strong> <a href="tel:17703207786"> (770) 320-7786</a></p>
 
 <div class="social-icons mt-3">
-<a href="#"><i class="fab fa-google"></i></a>
-<a href="#"><i class="fab fa-facebook"></i></a>
-<a href="#"><i class="fab fa-linkedin"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
-<a href="#"><i class="fab fa-tiktok"></i></a>
+<a href="https://goo.gl/maps/Vvd6nXabp8LZY3di7" target="_black"><i class="fab fa-google"></i></a>
+<a href="https://www.facebook.com/CrichtonMullingsJA" target="_black"><i class="fab fa-facebook"></i></a>
+<a href="https://www.linkedin.com/company/89613046" target="_black"><i class="fab fa-linkedin"></i></a>
+<a href="https://www.youtube.com/channel/UCbB15nMDcMgdAdSHdmfPKMw" target="_black"><i class="fab fa-youtube"></i></a>
+<a href="https://www.tiktok.com/@crichtonmullings" target="_black"><i class="fab fa-tiktok"></i></a>
 </div>
 
 </div>
