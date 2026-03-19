@@ -68,12 +68,44 @@ $aboutItems = $aboutMenu ? $aboutMenu->items()->orderBy('order')->get() : [];
 </div>
 
 {{-- Column 4 News --}}
+
 <div class="col-lg-3 col-md-6">
 
 <h4>Our News</h4>
 
+@php
+$blogs = \App\Models\Blog::latest()->take(3)->get();
+@endphp
+
+<div class="footer-news">
+
+@foreach($blogs as $blog)
+
+<div class="d-flex align-items-start mb-3">
+
+  
+    <div style="width:60px; height:60px; margin-right:10px;">
+        <img 
+            src="{{ asset('storage/'.$blog->image) }}" 
+            alt="{{ $blog->title }}"
+            style="width:100%; height:100%; object-fit:cover; border-radius:4px;"
+        >
+    </div>
+
+ 
+    <div>
+        <a href="{{ url('blog/'.$blog->slug) }}" style="color:#fff; font-size:14px; text-decoration:none;">
+            {{ \Illuminate\Support\Str::limit($blog->title, 70) }}
+        </a>
+    </div>
+
 </div>
 
+@endforeach
+
+</div>
+
+</div>
 </div>
 </div>
 

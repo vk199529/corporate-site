@@ -4,6 +4,7 @@ namespace App\View\Composers;
 
 use Illuminate\View\View;
 use App\Models\Menu;
+use App\Models\Setting;
 
 class MenuComposer
 {
@@ -20,5 +21,6 @@ class MenuComposer
             : collect();
 
         $view->with('menus', $menus);
+        $view->with('setting', Setting::first());
     }
 }

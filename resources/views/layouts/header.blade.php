@@ -21,11 +21,24 @@
 <div class="container">
 
 <!-- LOGO -->
+@php
+    $setting = \App\Models\Setting::first();
+@endphp
 
-<a class="navbar-brand" href="/">
-<img src="/images/logo.png" height="60">
-</a>
+@if($setting)
 
+    <a href="{{ url('/') }}" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+
+        @if($setting->logo)
+            <img src="{{ asset('storage/'.$setting->logo) }}" alt="Logo" style="height:50px;">
+        @endif
+
+        <!-- <span style="font-weight:bold; font-size:18px; color:#000;">
+            {{ $setting->site_name }}
+        </span> -->
+
+    </a>
+@endif
 <!-- MENU -->
 
 <ul class="navbar-nav ms-auto align-items-center">
