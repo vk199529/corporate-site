@@ -129,3 +129,9 @@ Copyright © {{ date('Y') }} CrichtonMullings & Associates. All Rights Reserved.
 </div>
 
 </footer>
+<script>
+function toggleSearch() {
+    let box = document.getElementById('searchBox');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+</script>

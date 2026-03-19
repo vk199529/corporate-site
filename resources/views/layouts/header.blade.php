@@ -1,95 +1,107 @@
 <header>
 
 
-@if(request()->is('/'))
-<div class="top-bar">
+    @if(request()->is('/'))
+    <div class="top-bar">
 
-    <div class="container d-flex justify-content-between">
+        <div class="container d-flex justify-content-between">
 
-        <a href="#">Beneficial Owner Information</a>
-        <a href="#">Get FIRPTA Refund</a>
+            <a href="{{ url('/') }}/boi">Beneficial Owner Information</a>
+            <a href="{{ url('/') }}/firpta">Get FIRPTA Refund</a>
+
+        </div>
 
     </div>
-
-</div>
-@endif
+    @endif
 
 
 
-<nav class="navbar navbar-expand-lg bg-white shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
 
-<div class="container">
+        <div class="container">
 
-<!-- LOGO -->
-@php
-    $setting = \App\Models\Setting::first();
-@endphp
+            <!-- LOGO -->
+            @php
+            $setting = \App\Models\Setting::first();
+            @endphp
 
-@if($setting)
+            @if($setting)
 
-    <a href="{{ url('/') }}" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+            <a href="{{ url('/') }}" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
 
-        @if($setting->logo)
-            <img src="{{ asset('storage/'.$setting->logo) }}" alt="Logo" style="height:50px;">
-        @endif
+                @if($setting->logo)
+                <img src="{{ asset('storage/'.$setting->logo) }}" alt="Logo" style="height:50px;">
+                @endif
 
-        <!-- <span style="font-weight:bold; font-size:18px; color:#000;">
+                <!-- <span style="font-weight:bold; font-size:18px; color:#000;">
             {{ $setting->site_name }}
         </span> -->
 
-    </a>
-@endif
-<!-- MENU -->
+            </a>
+            @endif
+            <!-- MENU -->
 
-<ul class="navbar-nav ms-auto align-items-center">
+            <ul class="navbar-nav ms-auto align-items-center">
 
-@foreach($menus as $menu)
+                @foreach($menus as $menu)
 
-<li class="nav-item {{ $menu->children->count() ? 'dropdown' : '' }}">
+                <li class="nav-item {{ $menu->children->count() ? 'dropdown' : '' }}">
 
-<a class="nav-link {{ $menu->children->count() ? 'dropdown-toggle' : '' }}"
-   href="{{ url($menu->url) }}">
+                    <a class="nav-link {{ $menu->children->count() ? 'dropdown-toggle' : '' }}"
+                        href="{{ url($menu->url) }}">
 
-{{ $menu->title }}
+                        {{ $menu->title }}
 
-</a>
+                    </a>
 
-@if($menu->children->count())
+                    @if($menu->children->count())
 
-<ul class="dropdown-menu">
+                    <ul class="dropdown-menu">
 
-@foreach($menu->children as $child)
+                        @foreach($menu->children as $child)
 
-<li>
-<a class="dropdown-item" href="{{ url($child->url) }}">
-{{ $child->title }}
-</a>
-</li>
+                        <li>
+                            <a class="dropdown-item" href="{{ url($child->url) }}">
+                                {{ $child->title }}
+                            </a>
+                        </li>
 
-@endforeach
+                        @endforeach
 
-</ul>
+                    </ul>
 
-@endif
+                    @endif
 
-</li>
+                </li>
 
-@endforeach
+                @endforeach
 
-<!-- SEARCH ICON -->
+                <!-- SEARCH ICON -->
 
-<li class="nav-item ms-3">
+                <li class="nav-item ms-3 position-relative">
 
-<a href="#">
-<i class="bi bi-search"></i>
-</a>
+                    <!-- 🔍 Icon -->
+                    <a href="javascript:void(0)" onclick="toggleSearch()">
+                        <i class="bi bi-search"></i>
+                    </a>
 
-</li>
+                    <!-- 🔍 Search Box -->
+                    <div id="searchBox"
+                        style="display:none; position:absolute; right:0; top:40px; background:#fff; padding:10px; box-shadow:0 5px 15px rgba(0,0,0,0.2);">
 
-</ul>
+                        <form action="{{ url('/search') }}" method="GET">
+                            <input type="text" name="q" placeholder="Search..." class="form-control mb-2" required>
+                            <button class="btn btn-primary w-100">Search</button>
+                        </form>
 
-</div>
+                    </div>
 
-</nav>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
 
 </header>
