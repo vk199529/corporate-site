@@ -15,4 +15,9 @@ class Page extends Model
     'meta_title',
     'meta_description'
 ];
+
+
+    protected $casts = [
+        'content' => 'array',
+    ];
 }
