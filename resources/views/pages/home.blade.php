@@ -31,12 +31,22 @@
             <h2 class="text-3xl font-bold mb-4">
                 {{ $block['data']['title'] }}
             </h2>
+    <div class="mb-16 what-we-do-section">
+
+        <h4 class="text-sm text-gray-500 uppercase mb-2 subtitle-s">
+            {{ $block['data']['subtitle'] }}
+        </h4>
+
+        <h2 class="text-3xl font-bold mb-4 main-tilte">
+            {{ $block['data']['title'] }}
+        </h2>
 
             <p class="text-gray-600 mb-8">
                 {{ $block['data']['description'] }}
             </p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
 
                 @foreach($block['data']['items'] as $item)
 
@@ -45,6 +55,12 @@
                     @if(!empty($item['image']))
                         <img src="{{ asset('storage/' . $item['image']) }}" class="w-16 h-16 mb-4">
                     @endif
+            <div class="bg-white rounded-xl  transition box-ss">
+            <a href="{{ $item['link'] }}">
+                {{-- IMAGE --}}
+                @if(!empty($item['image']))
+                <img src="{{ asset('storage/' . $item['image']) }}" class="image-size-c">
+                @endif
 
                     <h3 class="text-xl font-semibold mb-2">
                         {{ $item['title'] }}
@@ -63,6 +79,8 @@
                 </div>
 
                 @endforeach
+     
+                </a>
 
             </div>
 
