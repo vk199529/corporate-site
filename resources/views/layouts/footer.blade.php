@@ -134,4 +134,16 @@ function toggleSearch() {
     let box = document.getElementById('searchBox');
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toggleBtn = document.querySelector(".navbar-toggler");
+    const menu = document.getElementById("mainNavbar");
+
+    toggleBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        menu.classList.toggle("active");
+    });
+
+});
 </script>

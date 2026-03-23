@@ -22,13 +22,13 @@
     {{-- ================= WHAT WE DO ================= --}}
     @if($block['type'] === 'what_we_do')
 
-    <div class="mb-16">
+    <div class="mb-16 what-we-do-section">
 
-        <p class="text-sm text-gray-500 uppercase mb-2">
+        <h4 class="text-sm text-gray-500 uppercase mb-2 subtitle-s">
             {{ $block['data']['subtitle'] }}
-        </p>
+        </h4>
 
-        <h2 class="text-3xl font-bold mb-4">
+        <h2 class="text-3xl font-bold mb-4 main-tilte">
             {{ $block['data']['title'] }}
         </h2>
 
@@ -36,15 +36,15 @@
             {{ $block['data']['description'] }}
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
 
             @foreach($block['data']['items'] as $item)
 
-            <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-
+            <div class="bg-white rounded-xl  transition box-ss">
+            <a href="{{ $item['link'] }}">
                 {{-- IMAGE --}}
                 @if(!empty($item['image']))
-                <img src="{{ asset('storage/' . $item['image']) }}" class="w-16 h-16 mb-4">
+                <img src="{{ asset('storage/' . $item['image']) }}" class="image-size-c">
                 @endif
 
                 {{-- TITLE --}}
@@ -57,12 +57,8 @@
                     {{ $item['description'] }}
                 </p>
 
-                {{-- LINK --}}
-                @if(!empty($item['link']))
-                <a href="{{ $item['link'] }}" class="text-blue-600 font-medium">
-                    Learn More →
+     
                 </a>
-                @endif
 
             </div>
 

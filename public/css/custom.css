@@ -1,4 +1,6 @@
-
+body{
+     font-family: "Roboto", sans-serif;
+}
 .top-bar{
 background:#f5f5f5;
 padding:6px 0;
@@ -68,4 +70,108 @@ footer.footer-area a {
 .footer-news img:hover {
     transform: scale(1.05);
     transition: 0.3s;
+}
+/* Desktop */
+#mainNavbar {
+    display: block;
+}
+
+/*Home Page first section css*/
+img.image-size-c {
+    height: 170px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+.box-ss h3 {font-size: 16px;text-align: center;font-weight: 500;padding: 15px 10px 0;}
+.box-ss p {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.3em;
+    padding: 0 10px;
+}
+.box-ss {
+    border: 1px solid #bdbdbd;
+}
+
+.what-we-do-section {
+    text-align: center;
+}
+.subtitle-s {
+    font-size: 24px !important;
+    font-weight: 600;
+    color: #0096f4 !important;
+}
+.subtitle-s:before{
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #750218;
+    width: 60px;
+}
+.subtitle-s:after{
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    height: 1px;
+    content: " ";
+    text-shadow: none;
+    background-color: #750218;
+    width: 60px;
+}
+.main-tilte {
+    font-size: 40px !important;
+    font-weight: 600 !important;
+    text-transform: none;
+    color: rgb(63, 63, 63);
+}
+.what-we-do-section p {
+    font-size: 14px;
+    max-width: 75%;
+    margin: 0 auto 22px;
+}
+/* Mobile Menu Design */
+@media (max-width: 991px) {
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 0px 16px;
+}
+    #mainNavbar {
+        display: none;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 15px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    #mainNavbar.active {
+        display: block;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar-nav .nav-item {
+        padding: 10px 0;
+    }
+    button.navbar-toggler {
+    outline: none;
+}
+
+button:focus:not(:focus-visible) {
+    box-shadow: none;
+}
 }
