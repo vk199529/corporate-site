@@ -31,7 +31,7 @@
 
 @include('layouts.header')
 
-<div class="container mt-4">
+<div class="main ">
 @yield('content')
 </div>
 

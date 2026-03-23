@@ -98,7 +98,7 @@ class PageForm
 
                                                         FileUpload::make('video')
                                                             ->label('Upload Video')
-                                                            ->disk('public') // ✅ IMPORTANT
+                                                            ->disk('public')
                                                             ->directory('videos')
                                                             ->acceptedFileTypes(['video/mp4'])
                                                             ->maxSize(51200)
