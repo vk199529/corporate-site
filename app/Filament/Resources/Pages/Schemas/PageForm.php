@@ -167,6 +167,77 @@ class PageForm
 
                                             ]),
 
+
+                                             /*
+                                        |-----------------------------------------
+                                        | WHO WE SERVE
+                                        |-----------------------------------------
+                                        */
+                                       Builder\Block::make('who_we_serve')
+    ->label('👥 Who We Serve') // ✅ better label
+    ->icon('heroicon-o-users') // 🔥 changed icon
+    ->schema([
+
+        /*
+        |-----------------------------------------
+        | SECTION CONTENT
+        |-----------------------------------------
+        */
+        Section::make('Section Content')
+            ->schema([
+
+                TextInput::make('subtitle')
+                    ->placeholder('WHO WE SERVE'),
+
+                TextInput::make('title')
+                    ->required(),
+
+                Textarea::make('description')
+                    ->rows(3),
+
+            ]),
+
+        /*
+        |-----------------------------------------
+        | CARDS / ITEMS
+        |-----------------------------------------
+        */
+        Section::make('Serve Categories')
+            ->description('Add cards like Retail, Financial Services etc.')
+            ->schema([
+
+                Repeater::make('items')
+                    ->label('Cards')
+                    ->grid(2) // 🔥 admin UI 2 column
+                    ->itemLabel(fn ($state) => $state['title'] ?? 'Card')
+                    ->schema([
+
+                        FileUpload::make('image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('who-we-serve')
+                            ->imagePreviewHeight('120')
+                            ->required(),
+
+                        TextInput::make('title')
+                            ->required()
+                            ->placeholder('e.g. Retail & Distributors'),
+
+                            Textarea::make('description')
+                            ->rows(2),
+
+                    ])
+                    ->collapsible()
+                    ->cloneable()
+                    ->reorderable()
+                    ->minItems(1)
+                    ->defaultItems(4), // 🔥 auto 4 cards
+
+            ])
+
+    ])
+    ->columns(1)
+
                                     ])
                                     ->columnSpanFull(),
 
