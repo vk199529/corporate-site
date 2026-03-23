@@ -146,4 +146,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+document.addEventListener("DOMContentLoaded", function () {
+
+    let count = 0;
+    let target = 300;
+    let speed = 20; // jitna kam utna fast
+
+    let counter = document.getElementById("counter");
+
+    let interval = setInterval(() => {
+        count++;
+        counter.innerText = count;
+
+        if (count >= target) {
+            clearInterval(interval);
+        }
+    }, speed);
+
+});
+
 </script>
