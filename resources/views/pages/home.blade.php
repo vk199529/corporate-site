@@ -4,26 +4,26 @@
 
 
 
-    {{-- LOOP ALL BLOCKS --}}
-    @foreach($page->content ?? [] as $block)
+{{-- LOOP ALL BLOCKS --}}
+@foreach($page->content ?? [] as $block)
 
-    {{-- ================= VIDEO SECTION ================= --}}
-    @if($block['type'] === 'video')
+{{-- ================= VIDEO SECTION ================= --}}
+@if($block['type'] === 'video')
 
-        <div class="mb-12">
-            <video class="w-full " autoplay muted loop playsinline>
-                <source src="{{ asset('storage/' . $block['data']['video']) }}" type="video/mp4">
-            </video>
-        </div>
+<div class="mb-12">
+    <video class="w-full " autoplay muted loop playsinline>
+        <source src="{{ asset('storage/' . $block['data']['video']) }}" type="video/mp4">
+    </video>
+</div>
 
-    @endif
+@endif
 
 
-    {{-- ================= WHAT WE DO ================= --}}
-    @if($block['type'] === 'what_we_do')
+{{-- ================= WHAT WE DO ================= --}}
+@if($block['type'] === 'what_we_do')
 
-    <div class="mb-16 align-center what-we-do-section center-class">
-<div class="container mx-auto px-4 py-10">
+<div class="mb-16 align-center what-we-do-section center-class">
+    <div class="container mx-auto px-4 py-10">
         <h4 class="text-sm text-gray-500 uppercase mb-2 subtitle-s">
             {{ $block['data']['subtitle'] }}
         </h4>
@@ -32,20 +32,20 @@
             {{ $block['data']['title'] }}
         </h2>
 
-            <p class="text-gray-600 mb-8">
-                {{ $block['data']['description'] }}
-            </p>
+        <p class="text-gray-600 mb-8">
+            {{ $block['data']['description'] }}
+        </p>
 
         <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
 
-                @foreach($block['data']['items'] as $item)
+            @foreach($block['data']['items'] as $item)
 
             <div class="bg-white rounded-xl  transition box-ss">
-            <a href="{{ $item['link'] }}">
-                {{-- IMAGE --}}
-                @if(!empty($item['image']))
-                <img src="{{ asset('storage/' . $item['image']) }}" class="image-size-c">
-                @endif
+                <a href="{{ $item['link'] }}">
+                    {{-- IMAGE --}}
+                    @if(!empty($item['image']))
+                    <img src="{{ asset('storage/' . $item['image']) }}" class="image-size-c">
+                    @endif
 
                     <h3 class="text-xl font-semibold mb-2">
                         {{ $item['title'] }}
@@ -55,87 +55,84 @@
                         {{ $item['description'] }}
                     </p>
 
-     
+
                 </a>
 
             </div>
             @endforeach
         </div>
     </div>
-    </div>
-    @endif
+</div>
+@endif
 
 
-    {{-- ================= WHO WE SERVE ================= --}}
-    @if($block['type'] === 'who_we_serve')
+{{-- ================= WHO WE SERVE ================= --}}
+@if($block['type'] === 'who_we_serve')
 
-        <section class="py-8 bg-white who-we-serve center-class">
-            <div class="container mx-auto  py-1">
-            <div class="max-w-7xl mx-auto px-4">
+<section class="py-8 bg-white who-we-serve center-class">
+    <div class="container mx-auto  py-1">
+        <div class="max-w-7xl mx-auto px-4">
 
-                {{-- Subtitle --}}
-                <h4 class="text-sm text-gray-500 uppercase mb-2 subtitle-s">
-                    {{ $block['data']['subtitle'] ?? '' }}
-                </h4>
+            {{-- Subtitle --}}
+            <h4 class="text-sm text-gray-500 uppercase mb-2 subtitle-s">
+                {{ $block['data']['subtitle'] ?? '' }}
+            </h4>
 
-                {{-- Title --}}
-                 <h2 class="text-3xl font-bold mb-4 main-tilte">
-                    {{ $block['data']['title'] ?? '' }}
-                </h2>
+            {{-- Title --}}
+            <h2 class="text-3xl font-bold mb-4 main-tilte">
+                {{ $block['data']['title'] ?? '' }}
+            </h2>
 
-                {{-- Description --}}
-                <p class="text-gray-600 mb-10  text-center">
-                    {{ $block['data']['description'] ?? '' }}
-                </p>
+            {{-- Description --}}
+            <p class="text-gray-600 mb-10  text-center">
+                {{ $block['data']['description'] ?? '' }}
+            </p>
 
-                {{-- Cards --}}
-                <div class="grid md:grid-cols-4 gap-6">
+            {{-- Cards --}}
+            <div class="grid md:grid-cols-4 gap-6">
 
-    @foreach ($block['data']['items'] as $item)
+                @foreach ($block['data']['items'] as $item)
 
-        <div class="service-card perspective">
+                <div class="service-card perspective">
 
-            <div class="card-inner">
+                    <div class="card-inner">
 
-                {{-- FRONT --}}
-                <div class="card-front">
+                        {{-- FRONT --}}
+                        <div class="card-front">
 
-                    <img 
-                        src="{{ asset('storage/' . $item['image']) }}" 
-                        class="w-full h-64 object-cover"
-                    >
+                            <img src="{{ asset('storage/' . $item['image']) }}" class="w-full h-64 object-cover">
 
-                    <div class="overlay"></div>
+                            <div class="overlay"></div>
 
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <h3 class="text-white text-lg font-semibold text-center px-4">
-                            {{ $item['title'] }}
-                        </h3>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <h3 class="text-white text-lg font-semibold text-center px-4">
+                                    {{ $item['title'] }}
+                                </h3>
+                            </div>
+
+                        </div>
+
+                        {{-- BACK --}}
+                        <div class="card-back">
+                            <p class="text-sm text-center">
+                                {{ $item['description'] ?? '' }}
+                            </p>
+                        </div>
+
                     </div>
 
                 </div>
 
-                {{-- BACK --}}
-                <div class="card-back">
-                    <p class="text-sm text-center">
-                        {{ $item['description'] ?? '' }}
-                    </p>
-                </div>
-
+                @endforeach
             </div>
-
         </div>
 
-    @endforeach
-</div>
-</div>
+    </div>
+</section>
 
-            </div>
-        </section>
+@endif
 
-    @endif
-
-    @endforeach
+@endforeach
 
 {{-- ================= OUR RESULTS ================= --}}
 
@@ -165,7 +162,7 @@
 {{-- ================= WHY CRICHTONMULLINGS & ASSOCIATES  ================= --}}
 
 <section class="py-5 bg-white why-crichtonmullings">
-   <div class="container mx-auto  py-1">
+    <div class="container mx-auto  py-1">
 
         <div class="row align-items-center">
 
@@ -181,7 +178,9 @@
                 </h2>
 
                 <p class="text-muted mt-3">
-                    Our priority is to help our clients to achieve financial success through profit-generating business strategies, stress-free tax planning strategies and time-saving technological advancements. By becoming a client, you will be one step closer to achieving your mission!
+                    Our priority is to help our clients to achieve financial success through profit-generating business
+                    strategies, stress-free tax planning strategies and time-saving technological advancements. By
+                    becoming a client, you will be one step closer to achieving your mission!
                 </p>
 
                 <a href="#" class="btn btn-primary mt-3 lats-chat">
@@ -194,13 +193,36 @@
             <div class="col-lg-6 text-center">
 
                 <img src="https://i0.wp.com/crichtonmullings.com/wp-content/uploads/2023/04/The-1-Audit-Firm-for-the-Junior-Market-of-the-Jamaica-Stock-Exchange.png?resize=800%2C450&ssl=1"
-                     class="img-fluid rounded shadow"
-                     alt="About Image">
+                    class="img-fluid rounded shadow" alt="About Image">
 
             </div>
 
         </div>
 
+    </div>
+</section>
+
+
+<section class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4"> 
+        <p class="text-center text-blue-500 text-sm font-semibold uppercase mb-2"> WHAT'S NEW AT </p>
+        <h2 class="text-center text-3xl font-bold mb-10"> CrichtonMullings & Associates </h2> 
+        <div class="grid md:grid-cols-3 gap-8"> 
+           @foreach($blogs ?? [] as $blog)
+            
+            <div class="group">
+                 <div class="overflow-hidden rounded-lg">
+                     <img src="{{ asset('storage/' . $blog->image) }}"
+                        class="w-full h-56 object-cover transition duration-500 group-hover:scale-105">
+                     </div>
+       <div class="mt-4">
+                    <h3 class="text-sm font-semibold text-gray-800 uppercase leading-snug"> {{ $blog->title }} </h3> 
+                    <a href="{{ route('blogs.show', $blog->slug) }}"
+                        class="inline-block mt-2 text-blue-600 text-sm font-medium"> READ MORE → </a>
+                </div>
+            </div>
+             @endforeach 
+            </div>
     </div>
 </section>
 @endsection

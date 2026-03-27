@@ -148,11 +148,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 document.addEventListener("DOMContentLoaded", function () {
 
-    let count = 0;
-    let target = 300;
-    let speed = 20; // jitna kam utna fast
+  
 
     let counter = document.getElementById("counter");
+    if (!counter) return;
+    
+  let count = 0;
+    let target = 300;
+    let speed = 20; 
 
     let interval = setInterval(() => {
         count++;

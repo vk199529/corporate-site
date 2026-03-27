@@ -58,6 +58,7 @@ class PageForm
                                 'contact' => 'Contact Page',
                                 'service-detail' => 'Service Detail Page',
                                 'corporate-responsibility' => 'Corporate Responsibility Page',
+                                'thank-you' => 'Thanku Pge',
                             ])
                                             ->default('home')
                                             ->required()
@@ -79,9 +80,36 @@ class PageForm
 
                                 Builder::make('content')
                                     ->label('Page Sections')
-                                    ->collapsed()
-                                    ->visible(fn ($get) => $get('template') === 'home')
+                                    ->collapsed()                               
                                     ->blocks([
+
+                                    // ✅ HERO (ADD HERE - TOP)
+        Builder\Block::make('hero')
+            ->label('🖼️ Hero Banner')
+            ->icon('heroicon-o-photo')
+            ->schema([
+
+                Section::make('Hero Content')
+                    ->schema([
+
+                        FileUpload::make('image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('hero')
+                            ->required(),
+
+                        TextInput::make('title')
+                            ->required(),
+
+                        TextInput::make('subtitle'),
+
+                        TextInput::make('button_text'),
+
+                        TextInput::make('button_link'),
+
+                    ])
+            ]),
+
 
                                         /*
                                         |-----------------------------------------
@@ -89,6 +117,7 @@ class PageForm
                                         |-----------------------------------------
                                         */
                                         Builder\Block::make('video')
+                                            ->visible(fn ($livewire) => $livewire->data['template'] === 'home')
                                             ->label('🎥 Hero Video')
                                             ->icon('heroicon-o-video-camera')
                                             ->schema([
@@ -114,6 +143,7 @@ class PageForm
                                         |-----------------------------------------
                                         */
                                         Builder\Block::make('what_we_do')
+                                            ->visible(fn ($livewire) => $livewire->data['template'] === 'home')
                                             ->label('🧩 What We Do')
                                             ->icon('heroicon-o-briefcase')
                                             ->schema([
@@ -144,7 +174,7 @@ class PageForm
 
                                                                 FileUpload::make('image')
                                                                     ->image()
-                                                                    ->disk('public') // ✅ IMPORTANT
+                                                                    ->disk('public') 
                                                                     ->directory('services')
                                                                     ->imagePreviewHeight('100'),
 
@@ -174,9 +204,10 @@ class PageForm
                                         |-----------------------------------------
                                         */
                                        Builder\Block::make('who_we_serve')
-    ->label('👥 Who We Serve') // ✅ better label
-    ->icon('heroicon-o-users') // 🔥 changed icon
-    ->schema([
+                                       ->visible(fn ($livewire) => $livewire->data['template'] === 'home')
+                                         ->label('👥 Who We Serve') 
+                                       ->icon('heroicon-o-users')
+                                     ->schema([
 
         /*
         |-----------------------------------------
@@ -208,7 +239,7 @@ class PageForm
 
                 Repeater::make('items')
                     ->label('Cards')
-                    ->grid(2) // 🔥 admin UI 2 column
+                    ->grid(2) 
                     ->itemLabel(fn ($state) => $state['title'] ?? 'Card')
                     ->schema([
 
@@ -240,6 +271,147 @@ class PageForm
 
                                     ])
                                     ->columnSpanFull(),
+                                    
+
+                                    
+
+  /*
+|-----------------------------------------
+| TEAM SECTION (ABOUT PAGE)
+|-----------------------------------------
+*/
+
+                                     Builder::make('content')
+                                    ->label('Page Sections')
+                                    ->collapsed()
+                                    ->visible(fn ($get) => $get('template') === 'about')
+                                    ->blocks([
+Builder\Block::make('team')
+    ->label('👨‍💼 Team Members')
+    ->icon('heroicon-o-user-group')
+    ->schema([
+
+        Section::make('Section Heading')
+            ->schema([
+
+                TextInput::make('subtitle')
+                    ->placeholder('MEET CRICHTONMULLINGS & ASSOCIATES'),
+
+                TextInput::make('title')
+                    ->required(),
+
+                Textarea::make('description')
+                    ->rows(3),
+
+            ]),
+
+        Section::make('Team Members')
+            ->schema([
+
+                Repeater::make('members')
+                    ->label('Team Members')
+                    ->grid(3)
+                    ->itemLabel(fn ($state) => $state['name'] ?? 'Member')
+                    ->schema([
+
+                        FileUpload::make('image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('team')
+                            ->required(),
+
+                        TextInput::make('name')
+                            ->required(),
+
+                        TextInput::make('designation')
+                            ->placeholder('CPA, CA'),
+
+                        Textarea::make('bio')
+                            ->rows(3),
+
+                    ])
+                    ->collapsible()
+                    ->cloneable()
+                    ->reorderable()
+                    ->minItems(3)
+                    ->defaultItems(6),
+
+            ])
+
+    ])
+                                    ]),
+
+/*
+ |-----------------------------------------
+| TEAM SECTION (services PAGE)
+|-----------------------------------------
+*/
+
+
+                                     Builder::make('content')
+                                    ->label('Page Sections')
+                                    ->collapsed()
+                                    ->visible(fn ($get) => $get('template') === 'services')
+                                    ->blocks([
+Builder\Block::make('services')
+    ->label('👨‍💼Full Services')
+    ->icon('heroicon-o-user-group')
+    ->schema([
+
+        Section::make('Section Heading')
+            ->schema([
+
+                TextInput::make('subtitle')
+                    ->placeholder('FULL SUITE OF SERVICES'),
+
+                TextInput::make('title')
+                    ->required(),
+
+                Textarea::make('description')
+                    ->rows(3),
+
+            ]),
+
+        Section::make('Team Members')
+            ->schema([
+
+                Repeater::make('members')
+                    ->label('Team Members')
+                    ->grid(2)
+                    ->itemLabel(fn ($state) => $state['name'] ?? 'Member')
+                    ->schema([
+
+                        FileUpload::make('image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('team')
+                            ->required(),
+
+                        TextInput::make('name')
+                            ->required(),
+
+                        TextInput::make('designation')
+                            ->placeholder('CPA, CA'),
+
+                        Textarea::make('bio')
+                            ->rows(3),
+
+                            TextInput::make('link')
+                                 ->placeholder('/service-link'),
+
+                    ])
+                    ->collapsible()
+                    ->cloneable()
+                    ->reorderable()
+                    ->minItems(3)
+                     ->defaultItems(2),
+
+            ])
+
+    ])
+                                    ])
+
+                                    
 
                             ]),
 

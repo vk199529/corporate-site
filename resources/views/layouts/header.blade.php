@@ -51,13 +51,12 @@
 
         <li class="nav-item {{ $menu->children->count() ? 'dropdown' : '' }}">
 
-            <a class="nav-link {{ $menu->children->count() ? 'dropdown-toggle' : '' }}"
-                href="{{ url($menu->url) }}"
-                @if($menu->children->count()) data-bs-toggle="dropdown" @endif>
+            <a class="nav-link {{ $menu->children->count() ? 'has-dropdown' : '' }}"
+                       href="{{ url($menu->url) }}">
 
-                {{ $menu->title }}
+                        {{ $menu->title }}
 
-            </a>
+                    </a>
 
             @if($menu->children->count())
 
