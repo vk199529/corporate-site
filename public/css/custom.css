@@ -158,12 +158,91 @@ img.image-size-c {
     background-color: #1B9BC5;
     border: 0;
 }
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+/*conatact page css*/
+.contact-section {
+  background: #f8f9fa;
+}
+
+.contact-section label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.contact-section .form-control {
+  border-radius: 4px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.contact-section textarea.form-control {
+  height: auto;
+}
+.contact-box {
+    padding-left: 60px;
+}
+.submit-btn {
+  background: #2ea3c4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+.submit-btn:hover {
+  background: #2389a3;
+}
+
+.contact-box h6 {
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  margin: 3px 0;
+  font-size: 14px;
+  color: #555;
+}
+.custom-tabs .nav-link {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  color: #333;
+  background: #f8f9fa;
+}
+
+.custom-tabs .nav-link.active {
+  background: #2ea3c4;
+  color: #fff;
+}
+
+.custom-tabs h5 {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.custom-tabs small {
+  font-size: 12px;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.tab-content iframe {
+  border-radius: 4px;
+}
 
 /* Mobile Menu Design */
 @media (max-width: 991px) {
 .navbar-nav .nav-link {
     font-weight: 500;
     padding: 0px 16px;
+}
+.contact-box {
+    padding-left: 10px;
 }
     #mainNavbar {
         display: none;
